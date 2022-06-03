@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Shaurmas</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+</head>
+<body>
+<div th:insert="fragments/navbar::nav"></div>
+<div class="container">
+<!-- Option 1: Bootstrap Bundle with Popper -->
+
+<div th:switch = "${shaurmas}">
+    <h2 th:case = null>No shaurmas</h2>
+    <div th:case = "*">
+        <h2>Shaurmas</h2>
+        <table>
+            <thead>
+            <tr>
+                <th>Id</th>
+                <th>name</th>
+                <th>price</th>
+                <th>Photo</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="shaurma:${shaurmas}">
+                <td th:text = "${shaurma.id}"></td>
+                <td th:text = "${shaurma.name}"></td>
+                <td th:text = "${shaurma.price}"></td>
+                <td th:text = "${shaurma.linkimg}"></td>
+                <td th:text = "${shaurma.description}"></td>
+                <td><a th:href = "@{shaurma-update/{id}(id=${shaurma.id})}">Edit</a></td>
+                <td><a th:href = "@{shaurma-delete/{id}(id=${shaurma.id})}">Delete</a></td>
+                <td><a th:href = "@{product/{id}(id=${shaurma.id})}">More</a></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+    <p><a href="/shaurma-create">Create shaurma</a></p>
+</div>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Shaurmas</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+
+
+</head>
+<body>
+<div th:insert="fragments/navbar::nav"></div>
+<div class="container">
+
+
+    <h2>Shaurmas</h2>
+    <div class="container">
+        <div th:switch="${shaurmas2}">
+            <h2 th:case=null>No shaurmas2</h2>
+
+            <div th:case="*">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="col-sm-6 col-md-4" th:each="shaurma:${shaurmas2}">
+                            <div class="thumbnail">
+                                <img class="img-fluid" width="100%" th:src="@{${shaurma.linkimg}}">
+                                <div class="caption">
+                                    <div class="row">
+                                        <div class="col-md-6 col-xs-6">
+                                            <h3 th:text="${shaurma.name}"></h3>
+                                        </div>
+                                        <div class="col-md-6 col-xs-6 price">
+                                            <h3>
+                                                <label th:text="${shaurma.price}"></label></h3>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+
+                                            <a th:href="@{product/{id}(id=${shaurma.id})}"
+                                               class="btn btn-primary btn-product"><span
+                                                    class="glyphicon glyphicon-thumbs"></span> More</a>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <a href="#" class="btn btn-success btn-product"><span
+                                                    class="glyphicon glyphicon-shopping-cart"></span> Buy</a></div>
+                                    </div>
+
+                                    <p></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,12 @@
+<th:block th:fragment="catalog">
+    <div class="container">
+        <div class="row" th:each="shaurma:${shaurmas3}">
+            <div class="container">
+                <div th:text="${shaurma.name}"></div>
+                <div th:text="${shaurma.price}"></div>
+                <div th:text="${shaurma.linkimg}"></div>
+            </div>
+        </div>
+
+    </div>
+</th:block>
