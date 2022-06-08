@@ -38,11 +38,11 @@ public class ShaurmaService {
             shaurma.imageToShaurma(image1);
         }
         if(file2.getSize() !=0) {
-            image2 = toImageEntity(file1);
+            image2 = toImageEntity(file2);
             shaurma.imageToShaurma(image2);
         }
         if(file1.getSize() !=0) {
-            image3 = toImageEntity(file1);
+            image3 = toImageEntity(file3);
             shaurma.imageToShaurma(image3);
         }
         Shaurma shaurmaFromDb = shaurmaRepository.save(shaurma);

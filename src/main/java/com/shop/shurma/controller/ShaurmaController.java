@@ -39,10 +39,10 @@ public class ShaurmaController {
         return "/home";
     }
 
-//    @GetMapping("/shaurma-create")
-//    public String createShaurmaForm(Shaurma shaurma) {
-//        return "shaurma-create";
-//    }
+    @GetMapping("/shaurma-create")
+    public String createShaurmaForm(Shaurma shaurma) {
+        return "shaurma-create";
+    }
 
     @PostMapping("/shaurma-create")
     public String createShaurma(@RequestParam("file1") MultipartFile file1, @RequestParam("file1") MultipartFile file2,
@@ -72,13 +72,6 @@ public class ShaurmaController {
     }
 
 
-//    @GetMapping("product/{id}")
-//    public String productPage(@PathVariable("id") Long id, Model model) {
-//        Shaurma shaurma = shaurmaService.findById(id);
-//        model.addAttribute("shaurma",shaurma);
-//        return "/product";
-//
-//    }
 @GetMapping("product/{id}")
 public String productPage(@PathVariable("id") Long id, Model model) {
     Shaurma shaurma = shaurmaService.findById(id);

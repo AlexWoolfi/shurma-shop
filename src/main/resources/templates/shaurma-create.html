@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" xmlns:th="http://www.thymeleaf.org">
     <title>Shaurmas</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -23,10 +23,13 @@
     <input type ="number" th:field="*{price}" id="price" placeholder="price" class="form-control">
     <label for="Linkimg">Link</label>
     <input type ="text" th:field="*{linkimg}" id="linkimg" placeholder="linkimg" class="form-control">
-    <input type ="text" th:field="*{description}" id="linkimg" description="description" class="form-control">
-    <input type ="file" th:field="*{images}" id="img1" file1="file1" class="form-control">
-    <input type ="file" th:field="*{images}" id="img2" file1="file2" class="form-control">
-    <input type ="file" th:field="*{images}" id="img3" file1="file3" class="form-control">
+    <input type ="text" th:field="*{description}" id="description" description="description" class="form-control">
+    <label for="img1">File 1(Previous)</label>
+    <input type ="file" th:field="*{image}" id="img1" name="file1" class="form-control">
+    <label for="img2">File 2</label>
+    <input type ="file" th:field="*{image}" id="img2" name="file2" class="form-control">
+    <label for="img3">File 3</label>
+    <input type ="file" th:field="*{image}" id="img3" name="file3" class="form-control">
     <input type="submit" value="Crete" class="btn btn-success mt-2" >
 </form>
 </div>
